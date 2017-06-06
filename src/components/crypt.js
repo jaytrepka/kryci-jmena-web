@@ -1,34 +1,34 @@
 function getCodedString(string) {
-  switch(string) {
+  switch (string) {
     case '000':
       return 'A';
-     case '001':
+    case '001':
       return 'B';
-     case '002':
+    case '002':
       return 'C';
-     case '003':
+    case '003':
       return 'D';
-     case '010':
+    case '010':
       return 'E';
-     case '011':
+    case '011':
       return 'F';
-     case '012':
+    case '012':
       return 'G';
-     case '013':
+    case '013':
       return 'H';
-     case '020':
+    case '020':
       return 'I';
-     case '021':
+    case '021':
       return 'J';
-     case '022':
+    case '022':
       return 'K';
-     case '023':
+    case '023':
       return 'L';
-     case '030':
+    case '030':
       return 'M';
-     case '031':
+    case '031':
       return 'N';
-     case '032':
+    case '032':
       return 'O';
     case '100':
       return 'P';
@@ -108,40 +108,42 @@ function getCodedString(string) {
       return '1';
     case '322':
       return '2';
+    default:
+      return '7';
   }
 }
 
 function getDecodedString(string) {
-  switch(string) {
-    case  'A':
+  switch (string) {
+    case 'A':
       return '000';
-     case 'B':
+    case 'B':
       return '001';
-     case 'C':
+    case 'C':
       return '002';
-     case 'D':
+    case 'D':
       return '003';
-     case 'E':
+    case 'E':
       return '010';
-     case 'F':
+    case 'F':
       return '011';
-     case 'G':
+    case 'G':
       return '012';
-     case 'H':
+    case 'H':
       return '013';
-     case 'I':
+    case 'I':
       return '020';
-     case 'J':
+    case 'J':
       return '021';
-     case 'K':
+    case 'K':
       return '022';
-     case 'L':
+    case 'L':
       return '023';
-     case 'M':
+    case 'M':
       return '030';
-     case 'N':
+    case 'N':
       return '031';
-     case 'O':
+    case 'O':
       return '032';
     case 'P':
       return '100';
@@ -221,6 +223,8 @@ function getDecodedString(string) {
       return '321';
     case '2':
       return '322';
+    default:
+      return '7';
   }
 }
 
