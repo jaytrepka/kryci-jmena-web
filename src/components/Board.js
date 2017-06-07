@@ -117,7 +117,7 @@ class Board extends Component {
           {guess && !guessed[i] && data[i]}
           {this.getClass(i) === 'black' &&
             (guessed[i] || help) &&
-            <img src={capybara} alt="capybara" width="90%" />}
+            <img src={capybara} alt="capybara" height="90%" />}
         </div>,
       );
     }
@@ -138,21 +138,28 @@ class Board extends Component {
     return (
       <div>
         {game === '' &&
-          <div>
-            Load last game:
-            <button onClick={() => this.loadLast()}>Load Last</button>
-            Or start new:
-            <button onClick={() => this.startNew()}>Start</button>
-            Or start special:
-            <input
-              ref={input => {
-                this.textInput = input;
-              }}
-              type="text"
-            />
-            <button onClick={() => this.startSpecial(this.textInput.value)}>
-              Start
-            </button>
+          <div className="before-game">
+            <div>
+              Load last game:
+              <button onClick={() => this.loadLast()}>Load Last</button>
+            </div>
+            <div>
+              Or start new:
+              <button onClick={() => this.startNew()}>Start</button>
+            </div>
+            <div>
+              Or start special:
+              <input
+                ref={input => {
+                  this.textInput = input;
+                }}
+                placeholder="Enter game ID"
+                type="text"
+              />
+              <button onClick={() => this.startSpecial(this.textInput.value)}>
+                Start
+              </button>
+            </div>
           </div>}
 
         {game !== '' &&
@@ -168,6 +175,27 @@ class Board extends Component {
         <style jsx>
           {
             `
+            .before-game {
+              display: flex;
+              flex-direction: column;
+              max-width: 400px;
+              padding: 30px;
+              margin: 0 auto;
+              text-align: center;
+            }
+
+            .before-game div {
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 20px;
+            }
+            .before-game button, input {
+              margin: 20px 0;
+              padding: 20px;
+              font-size: 20px;
+              text-transform: uppercase;
+              text-align: center;
+            }
             .line {
               display: flex;
               flex-direction: row;
