@@ -18,19 +18,22 @@ class Board extends Component {
     this.state = {
       data: [],
       game: '',
+      last: false,
       pattern: '',
       guessed: [],
     };
   }
 
   componentDidMount() {
-    if (this.props.guess) {
-      const data = this.shuffleArray(guessData).slice(0, 25);
-      const guessed = [];
-      for (let i = 0; i < 25; i++) {
-        guessed.push(false);
-      }
-      this.setState({guessed, data});
+    const data = this.shuffleArray(guessData).slice(0, 25);
+    const guessed = [];
+    for (let i = 0; i < 25; i++) {
+      guessed.push(false);
+    }
+    this.setState({guessed, data});
+    
+    if(getLocaleData().game) {
+      this.setState({last: true});
     }
   }
 
@@ -133,22 +136,22 @@ class Board extends Component {
   }
 
   render() {
-    const {game} = this.state;
+    const {game, last} = this.state;
 
     return (
       <div>
         {game === '' &&
           <div className="before-game">
-            <div>
+            {last && <div>
               Load last game:
               <button onClick={() => this.loadLast()}>Load Last</button>
-            </div>
+            </div>}
             <div>
-              Or start new:
+              Start new game:
               <button onClick={() => this.startNew()}>Start</button>
             </div>
             <div>
-              Or start special:
+              Or start special by ID:
               <input
                 ref={input => {
                   this.textInput = input;
@@ -193,8 +196,10 @@ class Board extends Component {
               margin: 20px 0;
               padding: 20px;
               font-size: 20px;
-              text-transform: uppercase;
               text-align: center;
+            }
+            .before-game button {
+              text-transform: uppercase;
             }
             .line {
               display: flex;
