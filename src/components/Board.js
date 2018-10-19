@@ -116,6 +116,7 @@ class Board extends Component {
             `${this.getClass(i)} ${guessed[i] || help ? 'guessed' : ''}`
           }
           onClick={() => this.setGuessed(i)}
+          key={i}
         >
           {guess && !guessed[i] && data[i]}
           {this.getClass(i) === 'black' &&
@@ -168,7 +169,7 @@ class Board extends Component {
         {game !== '' &&
           <div>
             <div className="header">
-              Game no. {game}
+              Game no. {game}{' '}
               <Link to="/">to Home</Link>
             </div>
             <div className="line">
@@ -178,6 +179,10 @@ class Board extends Component {
         <style jsx>
           {
             `
+            .header {
+              display: flex;
+              justify-content: space-between;
+            }
             .before-game {
               display: flex;
               flex-direction: column;
@@ -208,15 +213,15 @@ class Board extends Component {
               height: 90vh;
             }
             .gray, .red, .black, .blue {
-              width: calc(20% - 25px);
+              width: calc(20% - 22px);
               height: 14vh;
-              margin: 10px;
+              margin: 5px 10px;
               background: white;
               color: black;
               display: flex;
               justify-content: center;
               align-items: center;
-              border-radius: 25px;
+              border-radius: 10px;
               border: 1px solid black;
               text-align: center;
               word-wrap: break-word;

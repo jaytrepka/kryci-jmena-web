@@ -9,10 +9,10 @@ export default class Home extends Component {
       <div>
         <div className="container" data-tid="container">
           <h2>Code Names</h2>
-          <img src={capybara} alt="capybara" />
           <Link to="/help">to Help</Link>
           <Link to="/guess">to Guess</Link>
           <Link to="/howto">How to play</Link>
+          <img src={capybara} alt="capybara" width="100" height="100" style={{ padding: '10px' }} />
         </div>
         <style jsx>
           {
@@ -26,11 +26,12 @@ export default class Home extends Component {
             }
 
             .container h2 {
-              font-size: 5rem;
+              font-size: 4rem;
             }
 
             .container a {
               font-size: 1.4rem;
+              padding: 5px;
             }
             `
           }

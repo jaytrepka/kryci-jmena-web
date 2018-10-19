@@ -1,10 +1,8 @@
 body {
   position: relative;
   color: white;
-  height: 100vh;
   background-color: #355e3b;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
-  overflow-y: hidden;
 }
 
 h2 {
